@@ -9,7 +9,7 @@ from .ids import UserId
 
 @dataclass
 class ActivationKey:
-    value: str
+    value: bytes
     expire_at: datetime | None
 
 
@@ -18,9 +18,9 @@ class User(Entity[UserId]):
     created_at: datetime
     updated_at: datetime
 
-    login: EmailAddress
-    password_hash: bytes
-    activation_key: ActivationKey
+    email: EmailAddress
+    password: bytes
+    activation_key: ActivationKey | None
 
     is_active: bool
     is_admin: bool = False
