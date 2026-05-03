@@ -1,0 +1,13 @@
+from .base import UsecaseError
+
+
+class VirtualMachineNotFoundError(UsecaseError): ...
+
+
+class VirtualMachineAlreadyExistsError(UsecaseError): ...
+
+
+class NoFreeVirtualMachinesError(UsecaseError): ...
+
+
+class VirtualMachineClaimConflictError(UsecaseError): ...
