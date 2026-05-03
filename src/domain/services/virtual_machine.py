@@ -1,13 +1,14 @@
 from dataclasses import replace
 from datetime import datetime
 
+from domain.ports import IdGenerator
 from domain.entities.virtual_machine import ConnectionProtocol, VirtualMachine
 from domain.entities.user import User
 
 
 class VirtualMachineService:
-    def __init__(self):
-        self._id_generator = None
+    def __init__(self, id_generator: IdGenerator):
+        self._id_generator = id_generator
 
     def create(self, name: str, host: str, port: int, protocol: ConnectionProtocol):
 
@@ -17,7 +18,7 @@ class VirtualMachineService:
             host=host,
             port=port,
             protocol=protocol,
-            is_active=False,
+            is_active=True,
             current_user_id=None,
             last_used_at=None,
         )
