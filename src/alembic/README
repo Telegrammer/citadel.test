@@ -1,0 +1,3 @@
+Alembic migrations for Citadel. Run from repo root:
+
+PYTHONPATH=src uv run alembic -c src/alembic.ini upgrade head
