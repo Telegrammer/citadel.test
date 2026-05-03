@@ -4,15 +4,6 @@ from domain.value_objects import Id
 
 @dataclass(eq=False)
 class Entity[idT: Id]:
-    """Base class for entites
-
-    Attributues:
-        id: unqiue identifier that must be in every entity
-
-    Notes:
-        Class ensures that entities would be equal not by value but by id
-
-    """
 
     id: idT
 

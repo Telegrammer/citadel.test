@@ -9,6 +9,7 @@ from .ids import UserId
 
 @dataclass
 class ActivationKey:
+    lookup: str
     value: bytes
     expire_at: datetime | None
 
