@@ -4,7 +4,6 @@ from .base import DomainFieldError
 
 
 class InvalidPasswordReason(StrEnum):
-    """Reperesents a list of reasons why password is invalid."""
 
     TOO_SHORT = "Password is too short"
     NO_DIGITS = "Password must have at least one digit"
@@ -13,7 +12,6 @@ class InvalidPasswordReason(StrEnum):
 
 
 class InvalidPasswordError(DomainFieldError):
-    """Special domain error for password validation violation."""
 
     def __init__(self, reason: InvalidPasswordReason):
         super().__init__(
