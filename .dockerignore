@@ -1,0 +1,11 @@
+.git
+frontend
+desktop
+**/__pycache__
+.pytest_cache
+.mypy_cache
+*.pyc
+.ruff_cache
+coverage
+htmlcov
+.venv

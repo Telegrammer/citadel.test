@@ -1,0 +1,47 @@
+git checkout dev
+git add pyproject.toml uv.lock
+git commit -m "Add Python project metadata and lockfile"
+git add Dockerfile .dockerignore
+git commit -m "Add Dockerfile and Docker build context exclusions"
+git add docker-compose.yml entrypoint.sh entrypoint-worker.sh
+git commit -m "Add Docker Compose stack and container entrypoints"
+git add frontend/
+git commit -m "Add Vue web frontend application"
+git add desktop/.gitignore
+git commit -m "Add desktop dependency and build ignores"
+git add desktop/.env.example desktop/electron desktop/index.html desktop/package-lock.json desktop/package.json desktop/src desktop/tsconfig.json desktop/vite.config.ts
+git commit -m "Add Electron desktop client application"
+git add certificates/
+git commit -m "Add TLS certificates for local HTTPS"
+git add src/domain/value_objects/__init__.py src/domain/value_objects/email.py src/domain/value_objects/id.py src/domain/value_objects/password.py src/domain/exceptions/__init__.py src/domain/exceptions/base.py src/domain/exceptions/password.py src/domain/exceptions/user.py src/domain/exceptions/virtual_machine.py
+git commit -m "Refine domain value objects and exception hierarchy"
+git add src/domain/ports/__init__.py src/domain/ports/hasher.py src/domain/ports/activation_key_generator.py src/domain/ports/id_generator.py src/domain/ports/password_hasher.py
+git commit -m "Replace password hasher port with generic hashing port"
+git add src/domain/__init__.py src/domain/entities/__init__.py src/domain/entities/base.py src/domain/entities/user/__init__.py src/domain/entities/user/entity.py src/domain/entities/user/ids.py src/domain/entities/virtual_machine/__init__.py src/domain/entities/virtual_machine/entity.py src/domain/entities/virtual_machine/enums.py src/domain/entities/virtual_machine/ids.py
+git commit -m "Add user and virtual machine domain entities"
+git add src/domain/services/__init__.py src/domain/services/user.py src/domain/services/virtual_machine.py
+git commit -m "Implement user and VM domain services"
+git add src/application/exceptions/__init__.py src/application/exceptions/base.py src/application/exceptions/handlers.py src/application/exceptions/user.py src/application/exceptions/virtual_machine.py src/application/events/__init__.py src/application/events/user.py src/application/events/virtual_machine.py
+git commit -m "Add application-layer exceptions and domain events"
+git add src/application/ports/__init__.py src/application/ports/clock.py src/application/ports/transaction.py src/application/ports/unit_of_work.py src/application/ports/gateways/__init__.py src/application/ports/gateways/user.py src/application/ports/gateways/virtual_machine.py src/application/ports/mappers/__init__.py src/application/ports/mappers/user.py src/application/ports/mappers/virtual_machine.py src/application/ports/notifiers/__init__.py src/application/ports/notifiers/user.py src/application/ports/notifiers/virtual_machine.py src/application/ports/subscribers/__init__.py src/application/ports/subscribers/connection_status.py
+git commit -m "Define application ports for gateways, mappings, messaging, and UoW"
+git add src/application/usecase/__init__.py src/application/usecase/register_user.py src/application/usecase/login_user.py src/application/usecase/get_user.py src/application/usecase/update_user_activation_key.py src/application/usecase/change_password.py src/application/usecase/add_virtual_machine.py src/application/usecase/claim_virtual_machine.py src/application/usecase/free_virtual_machine.py
+git commit -m "Implement user and VM application use cases"
+git add src/application/services/__init__.py src/application/services/current_user.py
+git commit -m "Add authenticated current user helper service"
+git add src/application/compositions/__init__.py src/application/compositions/register_user.py src/application/compositions/login_user.py src/application/compositions/get_user.py src/application/compositions/update_user_activation_key.py src/application/compositions/change_password.py src/application/compositions/add_virtual_machine.py src/application/compositions/claim_virtual_machine.py src/application/compositions/free_virtual_machine.py
+git commit -m "Compose use cases with transactional and notification workflows"
+git add src/utils/__init__.py src/utils/case_converter.py
+git commit -m "Add case conversion helpers for persistence naming"
+git add src/infrastructure/models/sqlalchemy/__init__.py src/infrastructure/models/sqlalchemy/base.py src/infrastructure/models/sqlalchemy/user.py src/infrastructure/models/sqlalchemy/virtual_machine.py
+git commit -m "Define SQLAlchemy models for core aggregates"
+git add src/infrastructure/exceptions/__init__.py src/infrastructure/exceptions/handlers.py src/infrastructure/adapters/activation_key_generator.py src/infrastructure/adapters/clock.py src/infrastructure/adapters/connection_status_channel.py src/infrastructure/adapters/hasher.py src/infrastructure/adapters/id_generator.py src/infrastructure/adapters/smtp_client.py src/infrastructure/adapters/task_queue.py src/infrastructure/adapters/transaction.py src/infrastructure/adapters/unit_of_work.py src/infrastructure/adapters/gateways/__init__.py src/infrastructure/adapters/gateways/user.py src/infrastructure/adapters/gateways/virtual_machine.py src/infrastructure/adapters/mappers/__init__.py src/infrastructure/adapters/mappers/user.py src/infrastructure/adapters/mappers/virtual_machine.py src/infrastructure/adapters/notifiers/__init__.py src/infrastructure/adapters/notifiers/user.py src/infrastructure/adapters/notifiers/virtual_machine.py src/infrastructure/adapters/subscribers/__init__.py src/infrastructure/adapters/subscribers/connection_status.py
+git commit -m "Implement adapters for persistence and external integrations"
+git add src/presentation/__init__.py src/presentation/exceptions/__init__.py src/presentation/exceptions/base.py src/presentation/exceptions/callbacks.py src/presentation/exceptions/jwt.py src/presentation/exceptions/translators.py src/presentation/models/__init__.py src/presentation/models/user.py src/presentation/models/virtual_machine.py src/presentation/models/websocket.py src/presentation/presenters/__init__.py src/presentation/presenters/auth_presenter.py src/presentation/handlers/__init__.py src/presentation/handlers/register_user.py src/presentation/handlers/login_user.py src/presentation/handlers/get_user.py src/presentation/handlers/update_user_activation_key.py src/presentation/handlers/change_password.py src/presentation/handlers/add_virtual_machine.py src/presentation/handlers/claim_virtual_machine.py src/presentation/handlers/free_virtual_machine.py src/presentation/handlers/connection_status.py src/presentation/http/controllers/__init__.py src/presentation/http/controllers/auth.py src/presentation/http/controllers/dependencies.py src/presentation/http/controllers/user.py src/presentation/http/controllers/virtual_machine.py src/presentation/ws/__init__.py src/presentation/ws/codes.py src/presentation/ws/connection.py src/presentation/ws/controllers/__init__.py src/presentation/ws/controllers/status.py
+git commit -m "Expose REST and WebSocket presentation layer"
+git add src/setup/__init__.py src/setup/config.py src/setup/db_helper.py src/setup/redis_helper.py src/setup/celery_app.py src/setup/providers/__init__.py src/setup/providers/domain_provider.py src/setup/providers/database_provider.py src/setup/providers/redis_provider.py src/setup/providers/application_provider.py src/setup/providers/notification_provider.py src/setup/providers/presentation_provider.py
+git commit -m "Bootstrap configuration and Dishka dependency wiring"
+git add src/alembic.ini src/alembic/README src/alembic/env.py src/alembic/script.py.mako src/alembic/versions/2026_05_02_1200-6f2a1b0c3d4e_initial.py src/alembic/versions/2026_05_03_1400-a9b8c7d6_bootstrap_admin.py
+git commit -m "Add Alembic migrations and bootstrap admin revision"
+git add src/app_create.py src/main.py src/notification_worker.py
+git commit -m "Add FastAPI app factory and Celery worker entry points"
